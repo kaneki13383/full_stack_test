@@ -1,0 +1,39 @@
+<div class="modal_head">
+    <i class="icon_close" onclick="common.modal_hide()"></i>
+</div>
+<div class="modal_body">
+    <div class="input_group_modal">
+        <div>First Name </div>
+        <input type="text" id="first_name" value="{$user.first_name}">
+    </div>
+    <div class="input_group_modal">
+        <div>Last Name</div>
+        <input type="text" id="last_name" value="{$user.last_name}">
+    </div>
+    <div class="input_group_modal">
+        <div>Email</div>
+        <input type="email" id="email" value="{$user.email}">
+    </div>
+    <div class="input_group_modal">
+        <div>Phone</div>
+        <input type="number" id="phone" value="{$user.phone}">
+    </div>    
+    <div class="input_group_modal">
+        
+        <div>Plot ID</div>
+        <input  type="text" id="plot_id" value="{$user.plot_id}">
+        <select id="plot_id" multiple style="height: 200px;">
+            {section name=p loop=$plots}
+                <option value="{$plots[p].id}" onclick="common.add_to_arr({$plots[p].id})">{$plots[p].number}</option>
+            {/section}
+        </select>
+    </div>
+    <div class="modal_controls">
+        <div>
+            <div class="btn_modal" onclick="common.user_edit_update({$user.id});">Save</div>
+        </div>
+        <div>
+            <div class="btn_modal light" onclick="common.modal_hide();">Cancel</div>
+        </div>
+    </div>
+</div>
